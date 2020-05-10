@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "target": "ES5",
+    },
+    "types": [
+        "typed-bitwig-api"
+    ],    
+}

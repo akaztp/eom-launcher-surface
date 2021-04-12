@@ -32,7 +32,7 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 ## How to install
 - Install Open Stage Control
    - These instructions assume you install it on the same computer that of the DAW, Let's call it "main PC".
-   - Download session and module files from this repository: "control-surface.json" and "osc-filter-module.js".
+   - Download session and module files from this repository: "eom-control-surface.json" and "osc-filter-module.js".
    - Install the software and run it.
    - Configure Open Stage Control:
      - send: 127.0.0.1:8200 (the port where Bitwig/DrivenByMoss receives commands)

@@ -2,7 +2,7 @@
 ## Description
 This is a set of files for configuring [Open Stage Control](https://openstagecontrol.ammd.net/), which then provides a browser app to control clips in [Bitwig Studio](https://www.bitwig.com/). For example, this can revive an old tablet to be a live looping control tool.
 
-Image snapshot
+![EOM Control Surface](./snapshot.png)
 
 The communication between [Open Stage Control](https://openstagecontrol.ammd.net/) and Bitwig is accomplished with the [Open Sound Control](https://en.wikipedia.org/wiki/Open_Sound_Control) (OSC) protocol. Bitwig Studio needs the [DrivenByMoss](http://www.mossgrabers.de/Software/Bitwig/Bitwig.html) extension, which (among other things) provides a OSC implementation to interface with Bitwig Studio. So, communications are bidirectional between:
 
@@ -15,16 +15,19 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 ## Features
 - Play, Stop buttons
 - Beats indicator (recognizes time signature)
-- Track selection buttons
+- Scene launch buttons (with names)
+- Track selection buttons (with names and colors)
 - Track stop buttons
 - Clip button grid: Launch, Record
    - If tapped, when:
       - empty -> starts clip recording
       - stopped -> starts clip playing
-      - recording -> starts clip re-recording ????
+      - recording -> starts clip re-recording
       - playing -> starts clip recording
+- Delete clip
 - Buttons for new clips duration
 - Sync clip slots button
+- Configurable number of tracks (1 to 8)
 
 ## How to install
 - Install Open Stage Control

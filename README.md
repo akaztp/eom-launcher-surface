@@ -18,15 +18,15 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 - Scene launch buttons (with names)
 - Track selection buttons (with names and colors)
 - Track stop buttons
-- Clip button grid: Launch, Record
+- Clips button grid: Launch, Record (with fixed dureation)
    - If tapped, when:
       - empty -> starts clip recording
       - stopped -> starts clip playing
       - recording -> starts clip re-recording
       - playing -> starts clip recording
 - Delete clip
-- Buttons for new clips duration
-- Sync clip slots button
+- Buttons for selecting clips record duration
+- Sync all clips slot state button
 - Configurable number of tracks (1 to 8)
 
 ## How to install

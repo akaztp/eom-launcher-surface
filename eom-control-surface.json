@@ -1,5 +1,8 @@
 {
-  "session": {
+  "version": "1.9.1",
+  "type": "session",
+  "createdWith": "Open Stage Control",
+  "content": {
     "type": "root",
     "id": "root",
     "linkId": "",
@@ -43,7 +46,8 @@
         "target": "",
         "ignoreDefaults": false,
         "bypass": false,
-        "script": ""
+        "script": "",
+        "comments": ""
       },
       {
         "type": "variable",
@@ -58,7 +62,8 @@
         "target": "",
         "ignoreDefaults": false,
         "bypass": false,
-        "script": ""
+        "script": "",
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -108,7 +113,8 @@
         "bypass": false,
         "script": "",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -158,7 +164,8 @@
         "bypass": false,
         "script": "",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -208,7 +215,8 @@
         "bypass": false,
         "script": "var i = getIndex(id);\nvar st = get('clips-state-matrix/'+i);\nif (st===3 && value[i]===0) {\n  set('clips-state-matrix/'+i, 1);\n} else if (value[i]===1) {\n  set('clips-state-matrix/'+i, 3);\n}\n",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -258,7 +266,8 @@
         "bypass": false,
         "script": "var i = getIndex(id);\nvar st = get('clips-state-matrix/'+i);\nif (st===2 && value[i]===0) {\n  set('clips-state-matrix/'+i, 1);\n} else if (value[i]===1) {\n  set('clips-state-matrix/'+i, 2);\n}\n",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -308,7 +317,8 @@
         "bypass": false,
         "script": "var i = getIndex(id);\nvar st = get('clips-state-matrix/'+i);\nif (value[i]===0) {\n  set('clips-state-matrix/'+i, 0);\n} else if (st===0) {\n  set('clips-state-matrix/'+i, 1);\n}\n",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -358,7 +368,8 @@
         "bypass": false,
         "script": "",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -408,7 +419,8 @@
         "bypass": false,
         "script": "",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "matrix",
@@ -458,7 +470,8 @@
         "bypass": false,
         "script": "",
         "widgets": [],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "panel",
@@ -510,7 +523,7 @@
             "id": "transport-panel",
             "visible": true,
             "interaction": true,
-            "width": "15%",
+            "width": "20%",
             "height": "100%",
             "expand": false,
             "colorText": "auto",
@@ -584,7 +597,8 @@
                 "lineWidth": 0,
                 "html": "",
                 "vertical": false,
-                "wrap": false
+                "wrap": false,
+                "comments": ""
               },
               {
                 "type": "button",
@@ -625,11 +639,55 @@
                 "lineWidth": 0,
                 "html": "",
                 "vertical": false,
-                "wrap": false
+                "wrap": false,
+                "comments": ""
+              },
+              {
+                "type": "button",
+                "top": "auto-Infinity",
+                "left": "auto-Infinity",
+                "id": "metronome",
+                "visible": true,
+                "interaction": true,
+                "width": "auto",
+                "height": "auto",
+                "expand": true,
+                "colorText": "auto",
+                "colorWidget": "rgba(86,115,250,1)",
+                "colorStroke": "auto",
+                "colorFill": "auto",
+                "alphaStroke": "auto",
+                "alphaFillOff": 0.7,
+                "alphaFillOn": 1,
+                "padding": 0,
+                "css": "font-size:34rem",
+                "label": "^stopwatch",
+                "on": 1,
+                "off": 0,
+                "mode": "toggle",
+                "doubleTap": false,
+                "colorTextOn": "auto",
+                "value": "OSC(/click)",
+                "default": 0,
+                "linkId": "",
+                "script": "if (value===0) send(undefined, '/stop');",
+                "address": "/click",
+                "preArgs": "",
+                "typeTags": "",
+                "decimals": 2,
+                "target": "",
+                "ignoreDefaults": false,
+                "bypass": false,
+                "lineWidth": 0,
+                "html": "",
+                "vertical": false,
+                "wrap": false,
+                "comments": ""
               }
             ],
             "tabs": [],
-            "verticalTabs": false
+            "verticalTabs": false,
+            "comments": ""
           },
           {
             "type": "matrix",
@@ -683,7 +741,8 @@
               "padding": 0,
               "lineWidth": 0,
               "_forceUpdate": "@{beat}"
-            }
+            },
+            "comments": ""
           },
           {
             "type": "panel",
@@ -751,22 +810,20 @@
                 "colorTextOn": "auto",
                 "layout": "vertical",
                 "gridTemplate": "",
-                "values": {
-                  "^ruler-horizontal": 1,
-                  "^ruler-horizontal ^ruler-horizontal": 2
-                },
+                "values": "{\n  \"^ruler-horizontal\": @{parent.variables.beatsPerMeasure},\n  \"^ruler-horizontal ^ruler-horizontal\": #{@{parent.variables.beatsPerMeasure} * 2}\n}",
                 "mode": "tap",
                 "value": "",
                 "default": 1,
                 "linkId": "",
-                "address": "auto",
+                "address": "/launcher/postRecordingTimeOffset",
                 "preArgs": "",
                 "typeTags": "",
-                "decimals": 2,
+                "decimals": 0,
                 "target": "",
                 "ignoreDefaults": false,
-                "bypass": true,
-                "script": ""
+                "bypass": false,
+                "script": "",
+                "comments": ""
               },
               {
                 "type": "button",
@@ -807,14 +864,17 @@
                 "doubleTap": false,
                 "colorTextOn": "auto",
                 "vertical": false,
-                "wrap": false
+                "wrap": false,
+                "comments": ""
               }
             ],
             "tabs": [],
-            "verticalTabs": false
+            "verticalTabs": false,
+            "comments": ""
           }
         ],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       },
       {
         "type": "panel",
@@ -894,7 +954,8 @@
             "target": "",
             "ignoreDefaults": false,
             "bypass": false,
-            "script": ""
+            "script": "",
+            "comments": ""
           },
           {
             "type": "matrix",
@@ -950,7 +1011,8 @@
             "bypass": false,
             "script": "",
             "widgets": [],
-            "tabs": []
+            "tabs": [],
+            "comments": ""
           },
           {
             "type": "button",
@@ -991,7 +1053,8 @@
             "target": "",
             "ignoreDefaults": false,
             "bypass": true,
-            "script": "if (value==1)\n  setTimeout(0, reset, 3000);\nelse\n  clearTimeout(0);\n\nfunction reset() {\n  set(\"this\", 0);\n}\n"
+            "script": "if (value==1)\n  setTimeout(0, reset, 3000);\nelse\n  clearTimeout(0);\n\nfunction reset() {\n  set(\"this\", 0);\n}\n",
+            "comments": ""
           },
           {
             "type": "panel",
@@ -1092,7 +1155,8 @@
                 "bypass": false,
                 "script": "",
                 "widgets": [],
-                "tabs": []
+                "tabs": [],
+                "comments": ""
               },
               {
                 "type": "matrix",
@@ -1138,9 +1202,10 @@
                 "target": "",
                 "ignoreDefaults": false,
                 "bypass": false,
-                "script": "var i = getIndex(id);\nvar t = ~~(i / 8)+1;\nvar c = (i % 8)+1;\nvar st = get('clips-state-matrix/'+i);\nvar addr = '/track/'+t+'/clip/'+c+'/';\nif (get('clip-del-button')==1) {\n  send(undefined, addr+'remove');\n  set('clip-del-button', 0, {sync: true});\n} else if (st===1) {\n  send(undefined, addr+\"launch\");\n} else if (st===0 || st===2 || st===3) {\n  send(undefined, addr+'remove');\n  send(undefined, addr+\"create\", {type:'i', value:@{parent.variables.createMeasures}*@{parent.variables.beatsPerMeasure}});\n  send(undefined, addr+\"launch\");\n}\n",
+                "script": "var i = getIndex(id);\nvar t = ~~(i / 8)+1;\nvar c = (i % 8)+1;\nvar st = get('clips-state-matrix/'+i);\nvar addr = '/track/'+t+'/clip/'+c+'/';\nif (get('clip-del-button')==1) {\n  send(undefined, addr+'remove');\n  set('clip-del-button', 0, {sync: true});\n} else if (st===1) {\n  send(undefined, addr+\"launch\");\n} else if (st===0 || st===2 || st===3) {\n  send(undefined, addr+'remove');\n  send(undefined, addr+'record');\n}\n",
                 "widgets": [],
-                "tabs": []
+                "tabs": [],
+                "comments": ""
               },
               {
                 "type": "matrix",
@@ -1198,21 +1263,23 @@
                 "bypass": false,
                 "script": "",
                 "widgets": [],
-                "tabs": []
+                "tabs": [],
+                "comments": ""
               }
             ],
-            "tabs": []
+            "tabs": [],
+            "comments": ""
           }
         ],
-        "tabs": []
+        "tabs": [],
+        "comments": ""
       }
     ],
     "visible": true,
     "width": "auto",
     "height": "auto",
     "html": "",
-    "contain": true
-  },
-  "version": "1.8.15",
-  "type": "Open Stage Control session"
+    "contain": true,
+    "comments": ""
+  }
 }

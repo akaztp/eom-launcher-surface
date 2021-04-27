@@ -28,6 +28,7 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 - Buttons for selecting clips record duration
 - Sync all clips slot state button
 - Configurable number of tracks (1 to 8)
+- Metronome on/off button
 
 ## How to install
 - Install Open Stage Control

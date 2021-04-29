@@ -55,4 +55,4 @@ The app UI adapts to the display dimensions both vertically and horizontally.
   - The app should now be communicating with BitWig.
 
 
-Check [CHANGELOG.md]() for history of changes and versions.
+Check [CHANGELOG.md](./CHANGELOG.md) for history of changes and versions.

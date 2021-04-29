@@ -18,7 +18,7 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 - Scene launch buttons (with names)
 - Track selection buttons (with names and colors)
 - Track stop buttons
-- Clips button grid: Launch, Record (with fixed dureation)
+- Clips button grid: Launch, Record (with fixed duration)
    - If tapped, when:
       - empty -> starts clip recording
       - stopped -> starts clip playing

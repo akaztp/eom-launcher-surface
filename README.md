@@ -53,3 +53,6 @@ The app UI adapts to the display dimensions both vertically and horizontally.
      - Port to send to: 9000 (port where DrivenByMoss sends OSC commands to Open Stage Control)
 - Have fun!
   - The app should now be communicating with BitWig.
+
+
+Check [CHANGELOG.md]() for history of changes and versions.

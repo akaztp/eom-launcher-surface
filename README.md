@@ -30,6 +30,9 @@ The app UI adapts to the display dimensions both vertically and horizontally.
 - Configurable number of tracks (1 to 8)
 - Metronome on/off button
 
+There is also a sister project: [A controller surface on a browser for Bitwig Studio.](https://github.com/akaztp/eom-device-controller-surface)
+
+
 ## How to install
 - Install Open Stage Control
    - These instructions assume you install it on the same computer that of the DAW, Let's call it "main PC".

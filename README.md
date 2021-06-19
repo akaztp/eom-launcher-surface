@@ -1,6 +1,6 @@
 # EOM Control Surface
 ## Description
-This is a set of files for configuring [Open Stage Control](https://openstagecontrol.ammd.net/), which then provides a browser app to control clips in [Bitwig Studio](https://www.bitwig.com/). For example, this can revive an old tablet to be a live looping control tool.
+This is a set of files for configuring [Open Stage Control](https://openstagecontrol.ammd.net/), which then provides a browser app to control the clip launcher in [Bitwig Studio](https://www.bitwig.com/). For example, this can revive an old tablet to be a live looping control tool.
 
 ![EOM Control Surface](./snapshot.png)
 

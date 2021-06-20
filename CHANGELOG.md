@@ -5,6 +5,12 @@ You can check the installed version by going to the app, enabling the editor and
 
 # CHANGE LOG
 
+## v1.4: Bugfixes
+### Fixes
+- Fixed bug showing wrong track names
+- Fixed bug stopping wrong tracks
+- Symbols size now resizes with app size
+
 ## v1.3: Improved Clip length selector
 
 ## v1.2: Fixed Scene buttons

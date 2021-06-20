@@ -348,7 +348,7 @@
         "widgetType": "variable",
         "quantity": "@{parent.variables.numTracks}",
         "props": {
-          "address": "#{'/track/'+$+'/name'}"
+          "address": "#{'/track/'+($+1)+'/name'}"
         },
         "value": "#{[]}",
         "default": "",
@@ -518,7 +518,7 @@
                 "alphaFillOff": 1,
                 "alphaFillOn": 0.5,
                 "padding": 0,
-                "css": "font-size:40rem",
+                "css": "font-size:3vh",
                 "label": "^stop",
                 "on": 1,
                 "off": 0,
@@ -560,7 +560,7 @@
                 "alphaFillOff": 0.7,
                 "alphaFillOn": 1,
                 "padding": 0,
-                "css": "font-size:40rem",
+                "css": "font-size:3vh",
                 "label": "^play",
                 "on": 1,
                 "off": 0,
@@ -602,7 +602,7 @@
                 "alphaFillOff": 0.7,
                 "alphaFillOn": 1,
                 "padding": 0,
-                "css": "font-size:34rem",
+                "css": "font-size:3vh",
                 "label": "^stopwatch",
                 "on": 1,
                 "off": 0,
@@ -676,7 +676,7 @@
             "tabs": [],
             "widgetType": "led",
             "quantity": "@{parent.variables.beatsPerMeasure}",
-            "props": "{\n  \"colorFill\": \"#{'rgb('+250+','+(250-$*40)+','+0+')'}\",\n  \"value\": \"#{(@{beat}.split('.')[1])>=$ ? 1 : 0}\",\n  \"padding\": 0,\n  \"lineWidth\": 0,\n  \"_forceUpdate\": \"#{$ ? undefined : \"@{beat}\"}\"\n}",
+            "props": "{\n  \"colorFill\": \"#{'rgb('+250+','+(250-$*40)+','+0+')'}\",\n  \"value\": \"#{(@{beat}.split('.')[1])>=($+1) ? 1 : 0}\",\n  \"padding\": 0,\n  \"lineWidth\": 0,\n  \"_forceUpdate\": \"#{$ ? undefined : \"@{beat}\"}\"\n}",
             "comments": ""
           },
           {
@@ -742,7 +742,7 @@
                 "lineWidth": 0,
                 "padding": 0,
                 "html": "",
-                "css": "font-size: 25px",
+                "css": "font-size:2.5vh",
                 "label": "%key ^ruler-horizontal",
                 "icon": false,
                 "align": "center",
@@ -779,7 +779,7 @@
                 "lineWidth": 0,
                 "padding": 0,
                 "html": "",
-                "css": "font-size: 25rem",
+                "css": "font-size:3vh",
                 "value": 0,
                 "default": "",
                 "linkId": "",
@@ -1204,7 +1204,7 @@
             "lineWidth": 0,
             "padding": 10,
             "html": "",
-            "css": "font-size: 16rem",
+            "css": "font-size:2vh",
             "colorTextOn": "auto",
             "label": "^trash",
             "vertical": false,
@@ -1302,7 +1302,7 @@
                 "widgetType": "button",
                 "quantity": "@{parent.variables.numTracks}",
                 "props": {
-                  "address": "#{'/track/'+$+'/clip/stop'}",
+                  "address": "#{'/track/'+($+1)+'/clip/stop'}",
                   "colorWidget": "rgb(170,73,25)",
                   "alphaFillOff": 1,
                   "alphaFillOn": 0.5,
@@ -1310,7 +1310,7 @@
                   "padding": 0,
                   "mode": "tap",
                   "label": "^stop",
-                  "css": "font-size:20rem"
+                  "css": "font-size:3vh"
                 },
                 "value": "",
                 "default": "",
@@ -1447,6 +1447,6 @@
     "height": "auto",
     "html": "",
     "contain": true,
-    "comments": "v1.3"
+    "comments": "v1.4"
   }
 }

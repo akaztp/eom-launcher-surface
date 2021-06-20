@@ -1,5 +1,5 @@
 {
-  "version": "1.9.1",
+  "version": "1.9.10",
   "type": "session",
   "createdWith": "Open Stage Control",
   "content": {
@@ -97,7 +97,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numClips}",
-        "start": 0,
         "props": {
           "value": 0
         },
@@ -148,7 +147,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numClips}",
-        "start": 0,
         "props": {
           "address": "#{'/track/'+(~~($/8)+1)+'/clip/'+($%8+1)+'/color'}"
         },
@@ -199,7 +197,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numClips}",
-        "start": 0,
         "props": {
           "address": "#{'/track/'+(~~($/8)+1)+'/clip/'+($%8+1)+'/isPlaying'}"
         },
@@ -250,7 +247,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numClips}",
-        "start": 0,
         "props": {
           "address": "#{'/track/'+(~~($/8)+1)+'/clip/'+($%8+1)+'/isRecording'}"
         },
@@ -301,7 +297,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numClips}",
-        "start": 0,
         "props": {
           "address": "#{'/track/'+(~~($/8)+1)+'/clip/'+($%8+1)+'/hasContent'}"
         },
@@ -352,7 +347,6 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numTracks}",
-        "start": 1,
         "props": {
           "address": "#{'/track/'+$+'/name'}"
         },
@@ -403,60 +397,8 @@
         "traversing": false,
         "widgetType": "variable",
         "quantity": "@{parent.variables.numTracks}",
-        "start": 1,
         "props": {
           "address": "#{'/track/'+$+'/color'}"
-        },
-        "value": "#{[]}",
-        "default": "",
-        "linkId": "",
-        "address": "auto",
-        "preArgs": "",
-        "typeTags": "",
-        "decimals": 2,
-        "target": "",
-        "ignoreDefaults": false,
-        "bypass": false,
-        "script": "",
-        "widgets": [],
-        "tabs": [],
-        "comments": ""
-      },
-      {
-        "type": "matrix",
-        "top": 10,
-        "left": 30,
-        "id": "scene-name-matrix",
-        "visible": false,
-        "interaction": true,
-        "width": 200,
-        "height": 50,
-        "expand": "false",
-        "colorText": "auto",
-        "colorWidget": "auto",
-        "colorStroke": "auto",
-        "colorFill": "auto",
-        "alphaStroke": "auto",
-        "alphaFillOff": "auto",
-        "alphaFillOn": "auto",
-        "lineWidth": "auto",
-        "padding": "auto",
-        "html": "",
-        "css": "",
-        "colorBg": "auto",
-        "layout": "horizontal",
-        "justify": "start",
-        "gridTemplate": "",
-        "contain": true,
-        "scroll": true,
-        "innerPadding": true,
-        "variables": "@{parent.variables}",
-        "traversing": false,
-        "widgetType": "variable",
-        "quantity": "@{parent.variables.numTracks}",
-        "start": 1,
-        "props": {
-          "address": "#{'/scene/'+$+'/name'}"
         },
         "value": "#{[]}",
         "default": "",
@@ -734,7 +676,6 @@
             "tabs": [],
             "widgetType": "led",
             "quantity": "@{parent.variables.beatsPerMeasure}",
-            "start": 1,
             "props": "{\n  \"colorFill\": \"#{'rgb('+250+','+(250-$*40)+','+0+')'}\",\n  \"value\": \"#{(@{beat}.split('.')[1])>=$ ? 1 : 0}\",\n  \"padding\": 0,\n  \"lineWidth\": 0,\n  \"_forceUpdate\": \"#{$ ? undefined : \"@{beat}\"}\"\n}",
             "comments": ""
           },
@@ -817,7 +758,8 @@
                 "ignoreDefaults": false,
                 "bypass": false,
                 "script": "",
-                "comments": ""
+                "comments": "",
+                "wrap": false
               },
               {
                 "type": "button",
@@ -949,15 +891,17 @@
             "ignoreDefaults": false,
             "bypass": false,
             "script": "",
-            "comments": ""
+            "comments": "",
+            "numeric": false
           },
           {
-            "type": "matrix",
+            "type": "panel",
             "top": 0,
             "left": "10%",
-            "id": "scene-launcher-matrix",
+            "id": "scene-launcher-panel",
             "visible": true,
             "interaction": true,
+            "comments": "",
             "width": "80%",
             "height": "10%",
             "expand": true,
@@ -974,25 +918,14 @@
             "css": "",
             "colorBg": "auto",
             "layout": "horizontal",
-            "justify": "start",
+            "justify": "space-between",
             "gridTemplate": "",
             "contain": true,
             "scroll": true,
             "innerPadding": true,
+            "verticalTabs": false,
             "variables": "@{parent.variables}",
             "traversing": false,
-            "widgetType": "button",
-            "quantity": "@{parent.variables.numScenes}",
-            "start": 0,
-            "props": {
-              "label": "#{@{scene-name-matrix}[$] || ('SCN '+($+1))}",
-              "address": "#{'/scene/'+($+1)+'/launch'}",
-              "mode": "tap",
-              "lineWidth": 0,
-              "padding": 0,
-              "wrap": true,
-              "_forceUpdate": "#{@{scene-name-matrix}}"
-            },
             "value": "",
             "default": "",
             "linkId": "",
@@ -1004,9 +937,254 @@
             "ignoreDefaults": false,
             "bypass": false,
             "script": "",
-            "widgets": [],
-            "tabs": [],
-            "comments": ""
+            "widgets": [
+              {
+                "type": "panel",
+                "top": "auto",
+                "left": "auto",
+                "id": "scene-launcher-button_1",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": false,
+                "colorText": "auto",
+                "colorWidget": "auto",
+                "colorStroke": "auto",
+                "colorFill": "auto",
+                "alphaStroke": "auto",
+                "alphaFillOff": "auto",
+                "alphaFillOn": "auto",
+                "lineWidth": 0,
+                "padding": 0,
+                "html": "",
+                "css": "",
+                "colorBg": "auto",
+                "layout": "default",
+                "justify": "start",
+                "gridTemplate": "",
+                "contain": true,
+                "scroll": true,
+                "innerPadding": true,
+                "verticalTabs": false,
+                "variables": {
+                  "n": 1
+                },
+                "traversing": false,
+                "value": "",
+                "default": "",
+                "linkId": "",
+                "address": "auto",
+                "preArgs": "",
+                "typeTags": "",
+                "decimals": 2,
+                "target": "",
+                "ignoreDefaults": false,
+                "bypass": false,
+                "script": "",
+                "widgets": [
+                  {
+                    "type": "button",
+                    "top": "auto",
+                    "left": "auto",
+                    "id": "scene-launcher-button",
+                    "visible": true,
+                    "interaction": true,
+                    "comments": "",
+                    "width": "100%",
+                    "height": "100%",
+                    "expand": "false",
+                    "colorText": "auto",
+                    "colorWidget": "rgba(122,122,122,1)",
+                    "colorStroke": "auto",
+                    "colorFill": "auto",
+                    "alphaStroke": "auto",
+                    "alphaFillOff": 0.15,
+                    "alphaFillOn": 1,
+                    "lineWidth": 0,
+                    "padding": 0,
+                    "html": "",
+                    "css": "",
+                    "colorTextOn": "auto",
+                    "label": "OSC{/scene/@{parent.variables.n}/name, SCN @{parent.variables.n}}",
+                    "vertical": false,
+                    "wrap": true,
+                    "on": 1,
+                    "off": 0,
+                    "mode": "tap",
+                    "doubleTap": false,
+                    "value": "",
+                    "default": "",
+                    "linkId": "",
+                    "address": "/scene/@{parent.variables.n}/launch",
+                    "preArgs": "",
+                    "typeTags": "",
+                    "decimals": 2,
+                    "target": "",
+                    "ignoreDefaults": false,
+                    "bypass": false,
+                    "script": ""
+                  }
+                ],
+                "tabs": []
+              },
+              {
+                "type": "clone",
+                "top": "auto",
+                "left": "auto",
+                "id": "scene-launcher-button_2",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 2
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 10,
+                "left": 90,
+                "id": "scene-launcher-button_3",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 3
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 20,
+                "left": 100,
+                "id": "scene-launcher-button_4",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 4
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 20,
+                "left": 110,
+                "id": "scene-launcher-button_5",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 5
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 10,
+                "left": 50,
+                "id": "scene-launcher-button_6",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 6
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 10,
+                "left": 90,
+                "id": "scene-launcher-button_7",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 7
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              },
+              {
+                "type": "clone",
+                "top": 10,
+                "left": 110,
+                "id": "scene-launcher-button_8",
+                "visible": true,
+                "interaction": true,
+                "comments": "",
+                "width": "auto",
+                "height": "auto",
+                "expand": "false",
+                "css": "",
+                "widgetId": "scene-launcher-button_1",
+                "props": {
+                  "variables": {
+                    "n": 8
+                  }
+                },
+                "script": "",
+                "address": "auto",
+                "variables": "@{parent.variables}"
+              }
+            ],
+            "tabs": []
           },
           {
             "type": "button",
@@ -1125,7 +1303,6 @@
                 "traversing": false,
                 "widgetType": "button",
                 "quantity": "@{parent.variables.numTracks}",
-                "start": 1,
                 "props": {
                   "address": "#{'/track/'+$+'/clip/stop'}",
                   "colorWidget": "rgb(170,73,25)",
@@ -1184,7 +1361,6 @@
                 "traversing": false,
                 "widgetType": "button",
                 "quantity": "@{parent.variables.numClips}",
-                "start": 0,
                 "props": "JS{{\nvar st=(@{clips-state-matrix})[$];\nvar css = st===2 ? 'inner {border: 2px solid red;};' : '';\ncss += st===3 ? 'inner:after {animation: opacity-glow 1.5s ease-out infinite alternate};' : '';\nreturn {\n  \"colorFill\": (@{clips-color-matrix})[$],\n  \"alphaFillOff\": (st===2 || st===3) ? 1.0 : 0.3,\n  \"lineWidth\": 0,\n  \"padding\": 0,\n  \"css\": css,\n  \"mode\": \"tap\",\n  \"bypass\": true,\n  \"label\": \"\",\n  \"_forceUpdate\": $ ? undefined : @{clips-color-matrix}+@{clips-state-matrix},\n};\n}}",
                 "value": "#{[]}",
                 "default": "",
@@ -1233,7 +1409,6 @@
                 "traversing": false,
                 "widgetType": "button",
                 "quantity": "@{parent.variables.numTracks}",
-                "start": 0,
                 "props": {
                   "label": "#{@{track-name-matrix}[$] || ('TR '+($+1))}",
                   "address": "#{'/track/'+($+1)+'/select'}",
@@ -1274,6 +1449,6 @@
     "height": "auto",
     "html": "",
     "contain": true,
-    "comments": "v1.1"
+    "comments": "v1.2"
   }
 }

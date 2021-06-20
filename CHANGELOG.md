@@ -5,6 +5,10 @@ You can check the installed version by going to the app, enabling the editor and
 
 # CHANGE LOG
 
+## v1.2: Fixed Scene buttons
+### Dependencies
+- Open Stage Control v1.9.10
+
 ## v1.1: Project and files name changes
 
 ## v1.0: Initial Release

@@ -5,6 +5,8 @@ You can check the installed version by going to the app, enabling the editor and
 
 # CHANGE LOG
 
+## v1.3: Improved Clip length selector
+
 ## v1.2: Fixed Scene buttons
 ### Dependencies
 - Open Stage Control v1.9.10

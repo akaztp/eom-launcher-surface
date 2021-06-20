@@ -6,7 +6,7 @@
     "type": "root",
     "id": "root",
     "linkId": "",
-    "css": ".button-container inner { border-radius: 5px;}\n\n@keyframes opacity-glow {\n from { opacity: 0.3 }\n to { opacity: 1.0 }\n}",
+    "css": ".button-container inner,\n.dropdown-container inner { border-radius: 5px;}\n\n@keyframes opacity-glow {\n from { opacity: 0.3 }\n to { opacity: 1.0 }\n}",
     "default": "",
     "value": "",
     "address": "/root",
@@ -722,12 +722,13 @@
             "script": "",
             "widgets": [
               {
-                "type": "switch",
+                "type": "dropdown",
                 "top": "auto",
                 "left": "auto",
-                "id": "create-measure",
+                "id": "create-measure-dropdown",
                 "visible": true,
                 "interaction": true,
+                "comments": "",
                 "width": "auto",
                 "height": "100%",
                 "expand": true,
@@ -741,14 +742,13 @@
                 "lineWidth": 0,
                 "padding": 0,
                 "html": "",
-                "css": "font-size:16rem",
-                "colorTextOn": "auto",
-                "layout": "vertical",
-                "gridTemplate": "",
-                "values": "{\n  \"^ruler-horizontal\": @{parent.variables.beatsPerMeasure},\n  \"^ruler-horizontal ^ruler-horizontal\": #{@{parent.variables.beatsPerMeasure} * 2}\n}",
-                "mode": "tap",
+                "css": "font-size: 25px",
+                "label": "%key ^ruler-horizontal",
+                "icon": false,
+                "align": "center",
+                "values": "{\n  \"1\": @{parent.variables.beatsPerMeasure},\n  \"2\": #{@{parent.variables.beatsPerMeasure} * 2},\n  \"3\": #{@{parent.variables.beatsPerMeasure} * 3},\n  \"4\": #{@{parent.variables.beatsPerMeasure} * 4},\n  \"5\": #{@{parent.variables.beatsPerMeasure} * 5},\n  \"6\": #{@{parent.variables.beatsPerMeasure} * 6},\n  \"7\": #{@{parent.variables.beatsPerMeasure} * 7},\n  \"8\": #{@{parent.variables.beatsPerMeasure} * 8}\n}",
                 "value": "",
-                "default": 1,
+                "default": "@{parent.variables.beatsPerMeasure}",
                 "linkId": "",
                 "address": "/launcher/postRecordingTimeOffset",
                 "preArgs": "",
@@ -757,9 +757,7 @@
                 "target": "",
                 "ignoreDefaults": false,
                 "bypass": false,
-                "script": "",
-                "comments": "",
-                "wrap": false
+                "script": ""
               },
               {
                 "type": "button",
@@ -1449,6 +1447,6 @@
     "height": "auto",
     "html": "",
     "contain": true,
-    "comments": "v1.2"
+    "comments": "v1.3"
   }
 }

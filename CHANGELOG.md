@@ -5,6 +5,14 @@ You can check the installed version by going to the app, enabling the editor and
 
 # CHANGE LOG
 
+## v1.5: Bugfixes and improvements
+### Fixes
+- Beats indicator not working because of bug in filter module
+- Improved transport buttons positions
+- Improved number of tracks selector
+### Dependencies
+- Open Stage Control v1.10.3
+
 ## v1.4: Bugfixes
 ### Fixes
 - Fixed bug showing wrong track names

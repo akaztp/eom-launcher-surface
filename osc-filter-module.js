@@ -1,13 +1,22 @@
 module.exports = {
-    oscInFilter:function(data){
+    oscInFilter: function(data){
         var {address, args} = data
+        if (address === '/update') {
+            return undefined;
+        }
         if (address === '/time/str') {
             return undefined;
         }
         if (address === '/beat/str') {
-            if (!args[0].value.endsWith('.1')) {
+            var value = args[0].value;
+            var beat = value.substr(0, value.indexOf(':'));
+            if (lastBeat === beat || !beat.endsWith('.1')) {
                 return undefined;
             }
+            lastBeat = beat;
+        }
+        if (address === '/play') {
+            lastBeat = null;
         }
         var parts = address.split('/');
         if (parts[1] === 'track') {
@@ -18,3 +27,5 @@ module.exports = {
         return data;
     },
 }
+
+var lastBeat = null;

@@ -5,6 +5,10 @@ You can check the installed version by going to the app, enabling the editor and
 
 # CHANGE LOG
 
+## v1.6: Added "Manual" option to "Measure" dropdown
+- Added entry "Manual" to the "measure" dropdown which allows for free running clips.
+- Tweaked colour of the beat indicator
+
 ## v1.5: Bugfixes and improvements
 ### Fixes
 - Beats indicator not working because of bug in filter module
